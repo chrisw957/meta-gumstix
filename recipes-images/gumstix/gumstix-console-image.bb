@@ -43,6 +43,7 @@ BASE_INSTALL = " \
   update-alternatives-cworth \
   util-linux \
   which \
+  zypper \
  "
 
 FIRMWARE_INSTALL = " \
