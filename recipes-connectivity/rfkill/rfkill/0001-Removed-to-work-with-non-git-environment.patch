@@ -1,35 +1,22 @@
-From a58a93ac76113aca63d83a2645814a0146890790 Mon Sep 17 00:00:00 2001
-From: Adam YH Lee <adam.yh.lee@gmail.com>
-Date: Mon, 19 Nov 2012 21:20:45 +0000
-Subject: [PATCH] Removed to work with non-git environment
-
----
- version.sh |   13 -------------
- 1 file changed, 13 deletions(-)
-
-diff --git a/version.sh b/version.sh
-index 2843797..a6a7581 100755
---- a/version.sh
-+++ b/version.sh
-@@ -12,19 +12,6 @@ OUT="$1"
-
+--- version.sh.orig	2010-02-06 14:33:26.000000000 +0000
++++ version.sh	2012-11-19 23:39:11.099349123 +0000
+@@ -12,19 +12,6 @@
+ 
  if test "x$SUFFIX" != 'x'; then
-        v="$VERSION$SUFFIX"
+ 	v="$VERSION$SUFFIX"
 -elif head=`git rev-parse --verify HEAD 2>/dev/null`; then
--       git update-index --refresh --unmerged > /dev/null
--       descr=$(git describe 2>/dev/null || echo "v$VERSION")
+-	git update-index --refresh --unmerged > /dev/null
+-	descr=$(git describe 2>/dev/null || echo "v$VERSION")
 -
--       # on git builds check that the version number above
--       # is correct...
--       [ "${descr%%-*}" = "v$VERSION" ] || exit 2
+-	# on git builds check that the version number above
+-	# is correct...
+-	[ "${descr%%-*}" = "v$VERSION" ] || exit 2
 -
--       echo -n 'const char rfkill_version[] = "' > "$OUT"
--       v="${descr#v}"
--       if git diff-index --name-only HEAD | read dummy ; then
--               v="$v"-dirty
--       fi
+-	echo -n 'const char rfkill_version[] = "' > "$OUT"
+-	v="${descr#v}"
+-	if git diff-index --name-only HEAD | read dummy ; then
+-		v="$v"-dirty
+-	fi
  else
-        v="$VERSION"
+ 	v="$VERSION"
  fi
--- 
-1.7.9.5
