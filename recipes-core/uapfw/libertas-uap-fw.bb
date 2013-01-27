@@ -1,11 +1,11 @@
 DESCRIPTION = "Libertas UAP Firmware"
-PR = "r2"
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://licenses/GPL-2;md5=94d55d512a9ba36caa9b7df079bae19f"
+PR = "r3"
+LICENSE = "Proprietary"
+LIC_FILES_CHKSUM = "file://LICENCE.Marvell;md5=9ddea1734a4baf3c78d845151f42a37a"
 
 SRC_URI = "file://helper_sd.bin \
            file://sd8686_ap.bin \
-           file://licenses/GPL-2 \
+           file://LICENCE.Marvell \
           "
 
 S = "${WORKDIR}"
@@ -19,5 +19,4 @@ do_install () {
 FILES_${PN} += "/lib/firmware/mrvl"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 
