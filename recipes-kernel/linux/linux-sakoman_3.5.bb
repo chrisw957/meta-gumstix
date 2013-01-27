@@ -14,5 +14,6 @@ SRCREV = "${AUTOREV}"
 SRC_URI = "git://www.sakoman.com/git/linux.git;branch=omap-3.5;protocol=git \
 	   file://defconfig \
            file://${BOOT_SPLASH} \
+           file://libertas_uap.patch \
            "
 
